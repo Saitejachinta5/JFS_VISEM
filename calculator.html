@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+
+    <h1>Calculator</h1>
+
+    <table>
+        <tr>
+            <td>N1 :</td>
+            <td><input type="text" id="n1"></td>
+        </tr>
+        <tr>
+            <td>N2 :</td>
+            <td><input type="text" id="n2"></td>
+        </tr>
+        <tr>
+            <td>Operation :</td>
+            <td>
+                <select id="operation">
+                    <option value="add">ADD</option>
+                    <option value="sub">SUB</option>
+                    <option value="mul">MUL</option>
+                    <option value="div">DIV</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Result :</td>
+            <td><input type="text" id="result" readonly></td>
+        </tr>
+    </table>
+
+    <br>
+    <button onclick="calculate()">Calculate</button>
+
+    <!-- JavaScript -->
+    <script>
+        function calculate() {
+            let n1 = parseFloat(document.getElementById("n1").value);
+            let n2 = parseFloat(document.getElementById("n2").value);
+            let op = document.getElementById("operation").value;
+            let res = 0;
+
+            if (op === "add") {
+                res = n1 + n2;
+            } else if (op === "sub") {
+                res = n1 - n2;
+            } else if (op === "mul") {
+                res = n1 * n2;
+            } else if (op === "div") {
+                if (n2 === 0) {
+                    res = "Cannot divide by 0";
+                } else {
+                    res = n1 / n2;
+                }
+            }
+
+            document.getElementById("result").value = res;
+        }
+    </script>
+
+</body>
+</html>
